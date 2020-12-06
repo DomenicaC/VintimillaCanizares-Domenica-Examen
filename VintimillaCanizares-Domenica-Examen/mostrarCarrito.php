@@ -72,7 +72,7 @@ include "carrito.php";
         <form id="formulario1" method="Post" action="crear_pedido.php">
 
             <label for="numTar">Numero de tarjeta(*)</label>
-            <input type="text" id="tarjeta" name="buscar" value="" placeholder="Numero Tarjeta: " required>
+            <input type="text" id="tarjeta" name="buscar" value="" placeholder="Numero Tarjeta " required>
             <input type="button" id="buscar" name="buscar" value="Buscar tarjeta" onclick="buscarPorTarjeta()">
             <div id="informacion"><b>Datos de la tarjeta</b></div>
 
@@ -100,7 +100,7 @@ include "carrito.php";
                     </tr>
                     <?php $total = 0; ?>
                     <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
-                        echo <input type="text" id="codCom" name="codCom" value="<?php echo $producto['Codigo'] ?>" />;
+                         <input type="hidden" id="codCom" name="codCom" value="<?php echo $producto['Codigo'] ?>" />
                         <tr>
                             <td width="40%"><?php echo $producto['Nombre'] ?> </td>
                             <td width="15%" class="text-center"><?php echo $producto['Cantidad'] ?> </td>

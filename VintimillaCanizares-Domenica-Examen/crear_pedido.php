@@ -18,23 +18,26 @@ $sql = "INSERT INTO pedido VALUES (0, '$fecha', '$cliente', '$total', '$observac
 
 if ($conn->query($sql) === TRUE) {
     echo '<div class="alert alert-success">Se ha realizado tu pedido correctamente</div>';
-    print_r($sql);
+    //print_r($sql);
+    
 } else {
     if ($conn->errno == 1062) {
         echo '<div class="alert alert-success">No se ha podidio realizar tu pedido correctamente</div>';
-        print_r($sql);
+        //print_r($sql);
     } else {
         echo '<div class="alert alert-success">No se ha podidio realizar tu pedido correctamente</div>';;
-        print_r($sql);
+        //print_r($sql);
     }
 }
 
 //cerrar la base de datos
 $conn->close();
 echo "<a href='mostrarCarrito.php'>Regresar</a>";
+session_destroy();
 
 ?>
 
 <?php
 include "template/pie.php"
+
 ?>

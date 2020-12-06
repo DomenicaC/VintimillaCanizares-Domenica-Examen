@@ -8,9 +8,6 @@ $sql = "SELECT * FROM tarjeta_credito WHERE tar_num_tarjeta='$tarjeta'";
 //cambiar la consulta para puede buscar por ocurrencias de letras
 $result = $conn->query($sql);
 
-echo  ' <br>';
-
-
 echo " <table style='width:100%'>
             <tr>
             <th>Codigo</th>
@@ -23,7 +20,7 @@ echo " <table style='width:100%'>
             </tr>";
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        echo '<input type="text" id="codTar" name="codTar" value="'. $row['tar_codigo'] .'" />';
+        echo '<input type="hidden" id="codTar" name="codTar" value="'. $row['tar_codigo'] .'" />';
         echo "<tr>";
         echo " <td>" . $row['tar_codigo'] . "</td>";
         echo " <td>" . $row['tar_num_tarjeta'] . "</td>";
@@ -40,3 +37,5 @@ if ($result->num_rows > 0) {
 }
 echo "</table>";
 $conn->close();
+
+?>
